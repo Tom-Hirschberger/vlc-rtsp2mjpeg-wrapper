@@ -1,0 +1,13 @@
+[Unit]
+Description=rtsp2mjpeg
+After=network.target
+
+[Service]
+User=pi
+Type=simple
+#ExecStart=/home/pi/rtsp2mjpeg/rtsp2mjpeg.bash -a "REMOTE_HOST" -P "REMOTE_PORT" -s "REMOTE_STREAM" -t "LOCAL_PORT"
+#ExecStart=/home/pi/rtsp2mjpeg/rtsp2mjpeg.bash -u "REMOTE_USER" -p "REMOTE_PASSWORD" -a "REMOTE_HOST" -P "REMOTE_PORT" -s "REMOTE_STREAM" -t "LOCAL_PORT"
+ExecStart=/home/pi/rtsp2mjpeg/rtsp2mjpeg.bash -a "10.18.8.40" -P "10000" -s "unicast" -t "10001"
+
+[Install]
+WantedBy=multi-user.target
